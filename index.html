@@ -1,113 +1,163 @@
 <!DOCTYPE html>
-<html>
-    <!--Head-->
+
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width" />
-        <title>Shiv Patel</title>
-        <link rel="stylesheet" type="text/css" href="stylesheet/portfolio.css">
+        <meta name="viewport" content="width=device-width">
+        <title>My Portfolio</title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+            //snapping to each anchor 'page' on click
+            $(function() {
+                $('a[href*=#]').on('click', function(e) {
+                e.preventDefault();
+                $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+                });
+            });
+
+        </script>
+        <script src="./js/main.js" defer></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js">
+            AOS.init({
+                duration: 1200,
+            });
+
+        </script>
     </head>
-
-    <!--Body-->
-    <body class="Background">
-        
+    <body>
         <!--Navbar-->
-        <div class="Navbar">
-            <a class="active" href="#Home">Home</a>
-            <a href="#About">About</a>
-            <a href="#GitHub">GitHub</a>
-            <a href="#Contact">Contact</a>
+        <div class="navbar">
+                <a class="active" href="#home">Home</a>
+                <a href="#slideshow">Slideshow</a>
+                <a href="#about">About</a>
+                <a href="#github">Github</a>
+                <a href="#contact" onclick="formdisplay()">Contact</a>
         </div>
+        <!--End Navbar-->
 
-        <!--Breaks inserted to add space between navbar and the first heading-->
-        <br>
-        <br>
+        
 
-        <!--Background video-->
-        <div id="Home">
-            <video autoplay muted loop id="Typing_Video">
-                <source src="images/video/stars.mp4" type="video/mp4">
-                <!--Display message if video fails to run-->
-                Your browser does not support HTML5 video.
-            </video>
+        <!--home section-->
+        <div class="background">
+            <img class="backgroundimg" src="./images/background.jpg">
         </div>
-
-        <!--Video text-->
-        <div class="Video_Text">
-            <h1 class="white-text">Shiv's Portfolio</h1>
-            <strong>
-                <p class="center">
-                    <q>Somewhere, something incredible is waiting to be known.
-                    </q>
-                    <br> -Carl Sagan
-                    <br>
-                    <br> Hello! My name is Shiv, and welcome to my portfolio. Here I'd like to share a little bit about me and showcase my skills.
-                    <br>
-                    <br> I hope you enjoy your visit!
-                </p>
-            </strong>
+        <div class="homesection" id="home">
+            <!--home section content-->
+            <div class="homecontent">
+                <h1>Welcome to my corner of the internet</h1>
+                <p class="headertext">Ever since I was a little kid, I've known one thing - I want to make an impact in the world. </p>
+            </div>
+            <!--end home section content-->
         </div>
+        <!--end home section-->
+        <section id="section01" class="demo">
+            <h1>Click The Arrow To Continue...</h1>
+            <a href="#slideshow"><span></span>Scroll</a>
+        </section>
 
-        <!--About section-->
-        <div class="Row" id="About">
-            <!--Left column-->
-            <div class="Column_2">
-                <img src="images/space1.jpg" alt="Replace with your own image and description">
+        <div class="container border1" data-aos="fade-left">
+            <!--slideshow section-->
+            <div id="slideshow">
+                <div id="Slideshow_Background"> 
+                    <div id="Slideshow_Container" data-aos="zoom-in">
+                        <!-- Slide 1 of 6 -->
+                        <div class="mySlides fade">
+                            <img class="Slideshow_Images" src="./images/slide1.jpg" alt="Picture of yourself">
+                            <div class="text">I am inspired by the unknown. Software Development allows me to be inspired everyday! </div>
+                        </div>
+                        <!-- Slide 2 of 6 -->
+                        <div class="mySlides fade">
+                            <img class="Slideshow_Images" src="./images/slide2.jpg" alt="HTML, CSS, and JS logos"> 
+                            <div class="text">It takes a diverse team to accomplish impossible and innovative tasks.<br>I'd love to join yours and collaborate to build anything and everything!</div>
+                        </div>
+                        <!-- Slide 3 of 6 -->
+                        <div class="mySlides fade">
+                            <img class="Slideshow_Images" src="./images/slide3.png" alt="Python logo">
+                            <div class="text">There is nothing I won't learn in my endeavor<br> to build out a rock-solid foundation!</div>
+                        </div>
+                        <!-- Slide 4 of 6 -->
+                        <div class="mySlides fade">
+                            <img class="Slideshow_Images" src="./images/slide4.jpg" alt="C# logo">
+                            <div class="text">Let's create the impossible together.</div>
+                        </div>
+                        <!-- Slide 5 of 6 -->
+                        <div class="mySlides fade">
+                            <img class="Slideshow_Images" src="./images/slide5.jpg" alt="SQL logo"> 
+                            <div class="text">Afterall, impossiblity is time constrained.</div>
+                        </div>
+                        <!-- Slide 6 of 6 -->
+                        <div class="mySlides fade">
+                            <img class="Slideshow_Images" src="./images/slide6.gif" alt="Replace with a picture of your choosing"> 
+                            <div class="text pointer"><a class="white-text contact" onclick="formdisplay()">Click here to contact me now!</a></div> 
+                        </div>
+                        <!-- Previous and next buttons -->
+                        <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                    <br> <!-- Adds a space between the slideshow images and the dots -->
+    
+                    <!-- Slideshow dots (these are another way for users to navigate through the slideshow) -->
+                    <div style="text-align: center">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span> 
+                        <span class="dot" onclick="currentSlide(4)"></span> 
+                        <span class="dot" onclick="currentSlide(5)"></span> 
+                        <span class="dot" onclick="currentSlide(6)"></span> 
+                    </div>
+                </div>
             </div>
-            <!--Right column-->
-            <div class="Column_1">
-                <h1>About</h1>
-                <p>
-                    I am a former restauranteur that took the dive from regional management to learning how to code! I aim to diversify my talent pool and, one day, begin a career in software development! 
-                    <br>
-                    <br>I will be graduating from <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>’s Software Developer Boot Camp, and am in the process of learning the following 
-                        web and programming languages: HTML, CSS, JavaScript, SQL, C# and more. 
-                    <br>
-                    <br>I am open to any and all feedback! Reach out and help me learn, or if you have any questions lets collaborate to find a solution! <a href="#Contact">Contact</a> me below!
-                </p>
+            <!--End slideshow section-->
+        </div>  
+        <section id="section02" class="demo">
+            <a href="#section03"><span></a>
+          </section>
+
+        <div class="spacing"></div>  
+
+        <div class="container border2" data-aos="fade-up">
+            <!--about section-->
+            <div id="about" class="row">
+                <div class="col1">
+                    <p>My name is Shiv and I am at the start of my Software Development Journey. I am currently attending The Tech Academy, where I am in the process of building a solid foundation through the software development bootcamp.<br><br>By the end of my journey, I will be well-versed in HTML, CSS, Javascript, SQL, Python, and C#! <br> <a style="text-decoration: underline; color: rgb(234, 32, 69);" class="pointer" onclick="formdisplay()">Contact me now.</a> </p>
+                </div>
+                <p class="col2"><img src="./images/aboutme.jpg" class="imagecontainer"></p>
             </div>
+
+            
+            <!--End about section-->
+        
+            <!--Github section-->
+            <div id="github" class="row">
+                <p class="col2">Keep up with what I'm working on by viewing my GitHub. I add every project I work on actively :) </p>
+                <p class="col1" id="githubsec"> <a href="https://github.com/taekionic" class="pointer"><img class="imagecontainer" src="./images/25231.png"></a></p>
+            </div>
+            <!--End Github section-->
         </div>
+         <!--Contact Form-->
+            <div id="Contact">
+                <button onclick="formdisplay()" class="formpopup">Contact me!</button>
+                <div id="formcontainer" class="formclose" data-aos="fade-up">
+                    <form action="https://formspree.io/shiv.patel0625@gmail.com" method="POST" class="contactform">
+                        <label for="name"><b>Name</b></label>
+                        <input type="text" name="name" placeholder="Enter your Full Name" required>
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" name="email" placeholder="Enter your Email Address" required >
+                        <label for="phone"><b>Phone</b></label>
+                        <input type="text" name="phone" placeholder="Enter your Phone Number" required>
+                        <label for="message"><b>Message</b></label>
+                        <input type="text" placeholder="Enter your Message" name="message">
+                       
 
-        <!--GitHub section-->
-        <div class="Row" id="GitHub">
-            <!--Left column-->
-            <div class="Column_1">
-                <h1>GitHub</h1>
-                <p style="text-align: center;">
-                    You can view my coding projects on my GitHub profile here:
-                    <br>
-                    <p class="center"><a href="https://github.com/taekionic" target="_blank">My Github!</a></p>
-                </p>
+                        <button type="submit" class="btn">SUBMIT</button>
+                        <button type="button" class="btn cancel" onclick="formdisplay()">CLOSE</button>
+                    </form>
+                </div>
             </div>
-            <!--Right column-->
-            <div class="Column_2">
-                <a href="https://github.com/taekionic" target="_blank"><img src="images/GitHub.png" alt="GitHub Logo"></a>
-            </div>
-        </div>
-
-        <!--Contact section-->
-        <div class="Row" id="Contact">
-            <!--Contact image, left column-->
-            <div class="Column_2 Column_tall">
-                <img src="images/contact1.jpg" alt="Contact_Image">
-            </div>
-            <!--Contact form, right column-->
-            <div class="Column_1 Column_tall">
-                <h1>Contact</h1>
-                <!--This specifies where and how to send the form data; we are leaving it blank-->
-                <form action="" method="POST"> <!-- Here we are utilizing a 3rd party service to submit the contact form data, insert your formspree endpoint in the action attribute -->
-                    <label>Name:</label>
-                        <input type="text" placeholder="Please enter your name here">
-                    <label>Email:</label>
-                        <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-                    <label>Message:</label>
-                        <input type="text" id="Message" name="Message" placeholder="Please write your message here">
-                        <input type="submit" value="SUBMIT">
-                </form>
-            </div>
-        </div>
-
-        <!--Footer section-->
+            <section id="section03">
+            </section>
+            <!--End Contact Form-->
         <footer>
             <p>
                 <p class="center">&copy Shiv Patel 2022 <a href="https://www.learncodinganywhere.com/" target="_blank"></a></p>
@@ -115,4 +165,6 @@
             </p>
         </footer>
     </body>
+
+
 </html>
